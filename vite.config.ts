@@ -24,6 +24,13 @@ export default defineConfig({
 	server: {
 		host: true,
 		strictPort: true,
+		proxy: {
+		'/v1': {
+			target: 'http://localhost:4000',  // мій бекенд
+			changeOrigin: true,
+			secure: false,
+		},
+		},
 	},
 	test: {
 		environment: "jsdom",
